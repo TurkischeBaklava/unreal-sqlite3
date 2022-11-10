@@ -19,6 +19,7 @@ Android | ✓
 
 UE4 Version | Tested
 ---|-------
+4.27.x | ✓
 4.22.x | ✓
 4.21.x | ✓
 4.20.x | ✓

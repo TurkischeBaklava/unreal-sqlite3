@@ -1,5 +1,5 @@
-#include "CISQLite3PrivatePCH.h"
 #include "SQLiteDatabase.h"
+#include "CISQLite3PrivatePCH.h"
 
 #define LOGSQLITE(verbosity, text) UE_LOG(LogDatabase, verbosity, TEXT("SQLite: %s"), text)
 
@@ -273,11 +273,11 @@ bool USQLiteDatabase::GetDataIntoObjectBP(const FSQLiteDatabaseReference& DataSo
 
 //--------------------------------------------------------------------------------------------------------------
 
-TMap<FString, UProperty*> USQLiteDatabase::CollectProperties(UObject* SourceObject)
+TMap<FString, FProperty*> USQLiteDatabase::CollectProperties(UObject* SourceObject)
 {
 
 	UClass* SourceObjectClass = SourceObject->GetClass();
-	TMap<FString, UProperty*> Props;
+	TMap<FString, FProperty*> Props;
 	for (TFieldIterator<UProperty> PropIt(SourceObjectClass, EFieldIteratorFlags::SuperClassFlags::IncludeSuper);
 		PropIt; ++PropIt)
 	{
@@ -797,7 +797,7 @@ void USQLiteDatabase::AssignResultsToObjectProperties(const SQLiteResultValue& R
 	{
 		if (propertyMap.Contains(field.Name))
 		{
-			UProperty* targetProperty = propertyMap[field.Name];
+			FProperty* targetProperty = propertyMap[field.Name];
 
 			if (field.Type == SQLiteResultValueTypes::Integer)
 			{

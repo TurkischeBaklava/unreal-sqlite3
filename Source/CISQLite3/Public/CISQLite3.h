@@ -1,8 +1,7 @@
 // Copyright (c) 2015 Jussi Saarivirta 2016 conflict.industries MIT License (MIT)
 
 #pragma once
-
-#include "ModuleManager.h"
+#include "Modules/ModuleManager.h"
 
 class FCISQLite3 : public IModuleInterface
 {
